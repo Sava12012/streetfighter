@@ -1,0 +1,65 @@
+.modal-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.6);
+}
+
+.modal-root {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 300px;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    font-weight: 700;
+    font-size: 22px;
+    border-bottom: 4px solid #ed940e;
+    text-align: center;
+}
+
+.modal-body {
+    padding: 1rem;
+    text-align: center;
+}
+
+.close-btn {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: rgb(233, 151, 0);
+    outline: none;
+}
+
+.winner-body {
+    color: rgb(233, 151, 0);
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    padding: 36px;
+}
+
+.winner-title {
+    color: red;
+    text-align: center;
+}

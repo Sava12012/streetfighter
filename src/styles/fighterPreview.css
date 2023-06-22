@@ -1,0 +1,48 @@
+.fighter-preview___root {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 250px;
+}
+
+.fighter-preview___right {
+    align-items: flex-end;
+}
+
+.fighter-preview___left {
+    align-items: flex-start;
+}
+
+.fighter-preview___info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.fighter-preview___information-wrapper {
+    display: flex;
+    padding: 8px;
+    min-width: 90px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+    border: 2px solid black;
+    font-family: Arial, sans-serif;
+}
+
+.fighter-preview___information-wrapper:nth-child(2) {
+    background-color: green;
+}
+
+.fighter-preview___information-wrapper:nth-child(3) {
+    background-color: red;
+}
+
+.fighter-preview___information-wrapper:nth-child(4) {
+    background-color: orange;
+}
+
+.fighter-preview___info-title {
+    color: black;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
