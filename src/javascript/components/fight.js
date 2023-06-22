@@ -35,6 +35,7 @@ function updateHealthBar(fighter, maxHealth, indicatorId) {
     healthBar.style.width = `${healthPercentage}%`;
 }
 
+//!
 function checkBlockCombination(fighter, opponent) {
     const blockCombinationArray = Array.from(blockCombination);
     const localFighter = fighter;
@@ -49,16 +50,18 @@ function checkBlockCombination(fighter, opponent) {
     }
 }
 
-function checkCriticalCombination(fighter, opponent, opponentMaxHealth) {
+function checkCriticalCombination(fighter, opponent, opponentMaxHealth, isFirstPlayer) {
+    // console.log(criticalCombination);
     const criticalCombinationArray = Array.from(criticalCombination);
     const localOpponent = opponent;
-    if (
-        criticalCombinationArray.length === 3 &&
-        criticalCombinationArray.every(key => controls.PlayerOneCriticalHitCombination.includes(key))
-    ) {
+    const comboArray = isFirstPlayer
+        ? controls.PlayerOneCriticalHitCombination
+        : controls.PlayerTwoCriticalHitCombination;
+    const indicator = isFirstPlayer ? '#right-fighter-indicator' : '#left-fighter-indicator';
+    if (criticalCombinationArray.length === 3 && criticalCombinationArray.every(key => comboArray.includes(key))) {
         const damage = getHitPower(fighter) * 2;
         localOpponent.health -= damage;
-        updateHealthBar(localOpponent, opponentMaxHealth, '#right-fighter-indicator');
+        updateHealthBar(localOpponent, opponentMaxHealth, indicator);
     }
 }
 
@@ -99,10 +102,10 @@ export async function fight(firstFighter, secondFighter) {
                 checkBlockCombination(localsecondFighter, localfirstFighter);
             } else if (controls.PlayerOneCriticalHitCombination.includes(key)) {
                 criticalCombination.add(key);
-                checkCriticalCombination(localfirstFighter, localsecondFighter, secondFighterMaxHealth);
+                checkCriticalCombination(localfirstFighter, localsecondFighter, secondFighterMaxHealth, true);
             } else if (controls.PlayerTwoCriticalHitCombination.includes(key)) {
                 criticalCombination.add(key);
-                checkCriticalCombination(localsecondFighter, localfirstFighter, firstFighterMaxHealth);
+                checkCriticalCombination(localsecondFighter, localfirstFighter, firstFighterMaxHealth, false);
             }
 
             setTimeout(() => {
@@ -118,6 +121,11 @@ export async function fight(firstFighter, secondFighter) {
             }, maxRoundTime);
         };
 
+        const handleKeyDown = event => {
+            blockCombination.clear();
+            criticalCombination.clear();
+        };
         document.addEventListener('keydown', handleKeyPress);
+        document.addEventListener('keyup', handleKeyDown);
     });
 }
