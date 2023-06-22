@@ -24,4 +24,6 @@ Please, make sure there are no linter errors in your homework!
 ## 🤞 Good luck
 
 ![Menu](./resources/title.png)
+
+
 ![Arena](./resources/titel2.png)
