@@ -21,7 +21,17 @@ The project has a [Git Hooks](https://www.atlassian.com/git/tutorials/git-hooks)
 
 Please, make sure there are no linter errors in your homework!
 
+## 🤞 Controls
+
+- PlayerOneAttack: 'KeyA',
+- PlayerOneBlock: 'KeyD',
+- PlayerTwoAttack: 'KeyJ',
+- PlayerTwoBlock: 'KeyL',
+- PlayerOneCriticalHitCombination: ['KeyQ', 'KeyW', 'KeyE'],
+- PlayerTwoCriticalHitCombination: ['KeyU', 'KeyI', 'KeyO']
+
 ## 🤞 Good luck
+
 
 ![Menu](./resources/title.png)
 
